@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ledger — a to-do list</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="wrap">
+
+        <!-- Title bar: page name plus today's date, filled in by script.js -->
+        <div class="masthead">
+            <h1>Ledger</h1>
+            <span class="date" id="today"></span>
+        </div>
+
+        <!-- Open/closed counts, recalculated by render() in script.js every time the list changes -->
+        <div class="tally">
+            <span id="tally-open">— open</span>
+            <span id="tally-done">— closed</span>
+        </div>
+
+        <!-- Add-item form. A real <form> (not just a text input + button) is used so pressing Enter submits it, not just clicking "add". -->
+        <form class="entry" id="entry-form">
+            <input type="text" id="entry-input" placeholder="Enter an item and press add" autocomplete="off" />
+            <button type="submit">add</button>
+        </form>
+
+        <!-- Starts empty — script.js fills this with <li> rows, one per to-do item, every time render() runs -->
+        <ul class="list" id="list"></ul>
+
+        <!-- Hidden by default; script.js shows this instead of the list whenever there are zero items -->
+        <div class="empty" id="empty" style="display:none;">
+            <span class="big">nothing entered yet</span>
+            the ledger is clear — add your first item above
+        </div>
+
+        <!-- Small save-status message, updated by load()/save() in script.js -->
+        <div class="status" id="status">loading…</div>
+    </div>
+
+    <!-- Loaded last, after the elements above exist in the DOM, so script.js can safely look them up with getElementById as soon as it runs -->
+    <script src="index.js"></script>
+</body>
+
+</html>
