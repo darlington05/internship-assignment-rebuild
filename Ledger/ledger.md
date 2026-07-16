@@ -7,7 +7,7 @@ A small to-do list built with plain HTML, CSS, and JavaScript. Items are saved i
 - Each item stamped with the date it was added
 
 ## Getting started
-Clone the repo, then open "index.html" in your browser.
+Clone the repo, then open "ledger.html" in your browser.
 
 git clone https://github.com/darlington05/ledger.git
 
@@ -18,7 +18,7 @@ ledger/
 └── ledger.js    
 
 ## How it works
-Items are kept in an array in "index.js". Every add/toggle/delete updates that array, redraws the list, and saves it to localStorage as JSON. On load, that JSON is read back and parsed into the array again.
+Items are kept in an array in "ledger.js". Every add/toggle/delete updates that array, redraws the list, and saves it to localStorage as JSON. On load, that JSON is read back and parsed into the array again.
 
 ## Limitations
 Data is stored per-browser — it won't sync across devices and is lost if browser storage is cleared.

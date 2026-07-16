@@ -1,0 +1,186 @@
+:root {
+  --ink: #1b1b18;
+  --ink-soft: #6b6a63;
+  --paper: #f6f4ee;
+  --paper-raised: #ffffff;
+  --line: #dcd8cc;
+  --win: #3b6d11;
+  --win-bg: #e3efd7;
+  --lose: #a32d2d;
+  --lose-bg: #f6e2e0;
+  --tie: #8a6d1f;
+  --tie-bg: #f2ead0;
+  --mono: 'Courier New', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  min-height: 100%;
+}
+
+.wrap {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 48px 24px 60px;
+  text-align: center;
+}
+
+.masthead {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 14px;
+  margin-bottom: 28px;
+}
+
+.masthead h1 {
+  font-family: var(--mono);
+  font-size: 20px;
+  margin: 0 0 4px;
+}
+
+.masthead .best-of {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+/* Three-column score display: player / CPU / ties */
+.scoreboard {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.score-box {
+  flex: 1;
+  border: 1.5px solid var(--ink);
+  background: var(--paper-raised);
+  padding: 12px 6px;
+}
+
+.score-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+}
+
+.score-value {
+  display: block;
+  font-family: var(--mono);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* Where the two chosen hands are shown side by side after a round */
+.arena {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.hand-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.hand {
+  width: 84px; height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  border: 1.5px solid var(--ink);
+  background: var(--paper-raised);
+  border-radius: 50%;
+  transition: transform 0.15s ease;
+}
+
+.hand.played {
+  animation: pop 0.25s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); }
+  60% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.hand-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+.vs {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+/* Result line changes color depending on win/lose/tie via these classes, which script.js adds/removes after each round */
+.result {
+  font-size: 15px;
+  min-height: 22px;
+  margin: 0 0 28px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.result.win { color: var(--win); background: var(--win-bg); }
+.result.lose { color: var(--lose); background: var(--lose-bg); }
+.result.tie { color: var(--tie); background: var(--tie-bg); }
+
+.choices {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.choice {
+  flex: 1;
+  max-width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 8px;
+  border: 1.5px solid var(--ink);
+  background: var(--paper-raised);
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.choice:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.choice-icon { font-size: 28px; }
+
+.reset {
+  border: none;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.reset:hover { color: var(--lose); }
