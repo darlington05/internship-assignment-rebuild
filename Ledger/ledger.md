@@ -19,6 +19,3 @@ ledger/
 
 ## How it works
 Items are kept in an array in "ledger.js". Every add/toggle/delete updates that array, redraws the list, and saves it to localStorage as JSON. On load, that JSON is read back and parsed into the array again.
-
-## Limitations
-Data is stored per-browser — it won't sync across devices and is lost if browser storage is cleared.
